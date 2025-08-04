@@ -12,7 +12,6 @@ const pages = [
       "우리의 미래에 대해 한 번 상상해볼래? 🌸",
     ],
   },
-  { question: "우리 신혼집 인테리어는... 음, 모던 심플 어때!? 🛋️✨\n근데... 가끔은 가구도 옮겨야 하는데 같이 해줄 거지? 혼자는 무거워... 😅" },
   { question: "아침에 출근 전에 내가 삶은 계란이랑 바나나 챙겨줄게. 채희의 허기 내가 책임져도 될까? 🍌🥚" },
   { question: "주말엔 같이 장 보고 내가 요리할게! 혹시 맛이 망해도 맛있게 먹어줄 수 있어? 🍳😆" },
   { question: "리버풀 경기할 땐 가끔 닭강정 시켜서 같이 보면 안 될까? 나 혼자 보기엔 아쉬워서... 🍗⚽❤️❤️" },
@@ -20,6 +19,7 @@ const pages = [
   { question: "재밌는 드라마 나오면 우리 같이 정주행 하는 거 어때? 근데 나 중간에 졸아도 이해해줄 거지? 😴📺" },
   { question: "채희가 힘든 날엔 아무 말 없이 꼭 안아줘도 괜찮을까? 말보단 포옹으로 위로하고 싶어 🤗🫂" },
   { question: "채희 눈에 내가 답답해 보여도 너무 뭐라하지 말고 상냥하게 대해줄 수 있어...?.. 호호 😅💗" },
+  { question: "우리 신혼집 인테리어는... 음, 모던 심플 어때!? 🛋️✨\n근데... 가끔은 가구도 옮겨야 하는데 같이 해줄 거지? 혼자는 무거워... 😅" },
   { question: "앞으로 평생 ‘채희 편’만 들 건데 각오돼 있지? 물론 이미 나는 채희만의 편이긴 해 😎❤️" },
   {
     type: "confess",
@@ -71,54 +71,46 @@ function App() {
               {current.content.map((line, i) => (
                 <p key={i} className="text-xl mb-2 font-bold">{line}</p>
               ))}
-              <button onClick={nextPage} className="mt-6 bg-pink-500 text-white px-6 py-2 rounded-full font-bold">
-                시작하기 💌
-              </button>
+              <button onClick={nextPage} className="mt-6 bg-pink-500 text-white px-6 py-2 rounded-full">시작하기 💌</button>
             </div>
           )}
-
           {current.question && (
             <div>
               <p className="text-xl font-bold mb-6 whitespace-pre-wrap">{current.question}</p>
               <div className="flex gap-4 justify-center">
-                <button onClick={nextPage} className="bg-green-400 px-5 py-2 rounded-full text-white font-bold">좋아</button>
-                <button onClick={nextPage} className="bg-red-400 px-5 py-2 rounded-full text-white font-bold">아니</button>
+                <button onClick={nextPage} className="bg-green-400 px-5 py-2 rounded-full text-white">좋아</button>
+                <button onClick={nextPage} className="bg-red-400 px-5 py-2 rounded-full text-white">아니</button>
               </div>
             </div>
           )}
-
           {current.type === "confess" && (
             <div>
               {current.content.map((line, i) => (
                 <p key={i} className="text-xl mb-2 font-bold">{line}</p>
               ))}
               <div className="flex gap-4 justify-center mt-6">
-                <button onClick={() => goToPage(12)} className="bg-green-400 px-5 py-2 rounded-full text-white font-bold">좋아</button>
-                <button onClick={() => goToPage(11)} className="bg-red-400 px-5 py-2 rounded-full text-white font-bold">아니</button>
+                <button onClick={() => goToPage(12)} className="bg-green-400 px-5 py-2 rounded-full text-white">좋아</button>
+                <button onClick={() => goToPage(11)} className="bg-green-400 px-5 py-2 rounded-full text-white">좋아</button>
               </div>
             </div>
           )}
-
           {current.type === "rejection" && (
             <div>
               {current.content.map((line, i) => (
                 <p key={i} className="text-xl mb-2 font-bold">{line}</p>
               ))}
               <div className="flex gap-4 justify-center mt-6">
-                <button onClick={() => goToPage(12)} className="bg-green-400 px-5 py-2 rounded-full text-white font-bold">좋아</button>
-                <button onClick={() => goToPage(12)} className="bg-green-400 px-5 py-2 rounded-full text-white font-bold">좋아</button>
+                <button onClick={() => goToPage(12)} className="bg-green-400 px-5 py-2 rounded-full text-white">좋아</button>
+                <button onClick={() => goToPage(12)} className="bg-green-400 px-5 py-2 rounded-full text-white">좋아</button>
               </div>
             </div>
           )}
-
           {current.type === "ending" && (
             <div>
               {current.content.map((line, i) => (
                 <p key={i} className="text-lg mb-2 font-bold">{line}</p>
               ))}
-              <button onClick={() => goToPage(0)} className="mt-6 bg-purple-500 text-white px-6 py-2 rounded-full font-bold">
-                다시 보기 🔁
-              </button>
+              <button onClick={() => goToPage(0)} className="mt-6 bg-purple-500 text-white px-6 py-2 rounded-full">다시 보기 🔁</button>
             </div>
           )}
         </motion.div>
