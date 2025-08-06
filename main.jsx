@@ -74,6 +74,14 @@ function App() {
           transition={{ duration: 0.6 }}
           className="text-center px-6"
         >
+          {current.image && (
+          <img
+            src={current.image}
+            alt=""
+            className="mx-auto mb-4 max-h-64 rounded-2xl shadow-lg object-cover"
+          />
+        )}
+          
           {current.type === "intro" && (
             <div>
               {current.content.map((line, i) => (
